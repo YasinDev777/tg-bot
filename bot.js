@@ -1,6 +1,6 @@
 require('dotenv').config();
 const TelegramBot = require('node-telegram-bot-api');
-const db = require('./firebase');
+const { db } = require('./firebase');
 const { Timestamp } = require('firebase-admin/firestore');
 
 const bot = new TelegramBot(process.env.BOT_TOKEN, { polling: true });
@@ -70,3 +70,15 @@ bot.on('message', async (msg) => {
         delete userSessions[chatId];
     }
 });
+
+
+// start bot polling
+bot.launch();
+
+// optional express to keep Render Web Service alive
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.get('/', (_, res) => res.send('Bot is running.'));
+app.listen(port, () => console.log(`Listening on port ${port}`));
