@@ -70,11 +70,3 @@ bot.on('message', async (msg) => {
         delete userSessions[chatId];
     }
 });
-
-// optional express to keep Render Web Service alive
-const express = require('express');
-const app = express();
-const port = process.env.PORT || 3000;
-
-app.get('/', (_, res) => res.send('Bot is running.'));
-app.listen(port, () => console.log(`Listening on port ${port}`));
