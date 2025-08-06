@@ -71,10 +71,6 @@ bot.on('message', async (msg) => {
     }
 });
 
-
-// start bot polling
-bot.launch();
-
 // optional express to keep Render Web Service alive
 const express = require('express');
 const app = express();
