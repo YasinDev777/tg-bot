@@ -1,9 +1,9 @@
 exports.handleStart = (bot, msg) => {
     const chatId = msg.chat.id;
 
-    bot.sendMessage(chatId, 'Choose action:', {
+    bot.sendMessage(chatId, 'Komanda tanglang:', {
         reply_markup: {
-            keyboard: [['/newClient', '/getClient']],
+            keyboard: [['/yangiKlient', '/klientniTopish', '/barchaKlientlar']],
             resize_keyboard: true,
             one_time_keyboard: false
         }
